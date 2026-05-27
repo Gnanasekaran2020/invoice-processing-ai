@@ -1,0 +1,36 @@
+package com.invoice.domain.enums;
+
+public enum AuditAction {
+    // Auth
+    USER_REGISTERED,
+    USER_LOGIN,
+    USER_LOGOUT,
+    PASSWORD_CHANGED,
+
+    // Invoice lifecycle
+    INVOICE_CREATED,
+    INVOICE_UPDATED,
+    INVOICE_DELETED,
+    INVOICE_APPROVED,
+    INVOICE_REJECTED,
+    INVOICE_MARKED_PAID,
+    INVOICE_MARKED_DUPLICATE,
+    INVOICE_RETRY_TRIGGERED,
+
+    // AI processing
+    AI_EXTRACTION_STARTED,
+    AI_EXTRACTION_COMPLETED,
+    AI_EXTRACTION_FAILED,
+
+    // Report
+    REPORT_GENERATED,
+
+    // Profile
+    PROFILE_UPDATED,
+
+    // Notification
+    NOTIFICATION_SENT,
+    NOTIFICATION_FAILED
+}
+
+

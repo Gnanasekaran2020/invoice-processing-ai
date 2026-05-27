@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx ng *)",
+      "Bash(npm install *)",
+      "PowerShell(npm install @ctrl/tinycolor --no-audit --no-fund 2>&1)",
+      "Bash(cat \"C:\\\\Users\\\\2440622\\\\AppData\\\\Local\\\\npm-cache\\\\_logs\\\\2026-05-21T09_04_23_530Z-debug-0.log\" | grep -E \"^[0-9]+ \" | head -300 | tail -200)",
+      "PowerShell($out = \"$PWD\\\\tinycolor.tgz\"; Write-Output \"Downloading to: $out\"; Invoke-WebRequest -Uri \"https://registry.npmjs.org/@ctrl/tinycolor/-/tinycolor-4.2.0.tgz\" -OutFile $out -UseBasicParsing; Write-Output \"Size: $\\(\\(Get-Item $out\\).Length\\) bytes\")",
+      "PowerShell(npx ng serve --port 4200 2>&1 | Tee-Object -FilePath \"$env:TEMP\\\\ng-serve.log\")"
+    ]
+  }
+}

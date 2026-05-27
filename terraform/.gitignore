@@ -1,0 +1,42 @@
+# =============================================================
+#  .gitignore — Terraform
+# =============================================================
+
+# Local variable files — contain secrets, never commit!
+*.tfvars
+!terraform.tfvars.example
+!environments/*.tfvars
+
+# Terraform state — use remote backend (S3)
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Generated plan files
+tfplan
+*.tfplan
+
+# Lambda placeholder zip
+modules/lambda/placeholder.zip
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# AWS credentials
+.aws/
+*.pem
+*.key
+
+# OS files
+.DS_Store
+Thumbs.db
+

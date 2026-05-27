@@ -1,0 +1,13 @@
+# Spring Boot .dockerignore
+target/
+.git/
+.gitignore
+*.md
+.mvn/
+.env*
+.vscode/
+.idea/
+*.iml
+src/test/
+spotbugsXml.xml
+

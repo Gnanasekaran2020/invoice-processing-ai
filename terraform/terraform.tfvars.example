@@ -1,0 +1,82 @@
+# =============================================================
+#  terraform.tfvars.example — Copy to terraform.tfvars and edit
+#  DO NOT commit terraform.tfvars to source control
+# =============================================================
+
+# ── General ───────────────────────────────────────────────────
+aws_region  = "us-east-1"
+environment = "production"
+project     = "invoice-processing"
+owner       = "platform-team"
+
+# ── Domain ────────────────────────────────────────────────────
+domain_name   = "u2acts.com"
+app_subdomain = "invoice"
+api_subdomain = "api.invoice"
+
+# ── Network ───────────────────────────────────────────────────
+vpc_cidr              = "10.0.0.0/16"
+availability_zones    = ["us-east-1a", "us-east-1b", "us-east-1c"]
+public_subnet_cidrs   = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+private_subnet_cidrs  = ["10.0.11.0/24", "10.0.12.0/24", "10.0.13.0/24"]
+database_subnet_cidrs = ["10.0.21.0/24", "10.0.22.0/24", "10.0.23.0/24"]
+
+# ── ECR ───────────────────────────────────────────────────────
+ecr_image_tag_mutability  = "IMMUTABLE"
+ecr_image_retention_count = 10
+
+# ── ECS Fargate ───────────────────────────────────────────────
+api_image_tag     = "1.0.0"
+ui_image_tag      = "1.0.0"
+api_cpu           = 1024   # 1 vCPU
+api_memory        = 2048   # 2 GB
+ui_cpu            = 512
+ui_memory         = 1024
+api_desired_count = 2
+ui_desired_count  = 2
+api_min_count     = 1
+api_max_count     = 10
+
+# ── RDS PostgreSQL ────────────────────────────────────────────
+db_instance_class        = "db.t3.medium"
+db_name                  = "invoice"
+db_username              = "postgres"
+db_password              = "CHANGE_ME_STRONG_PASSWORD"   # Use Secrets Manager in prod
+db_multi_az              = true
+db_backup_retention_days = 7
+db_storage_gb            = 50
+db_max_storage_gb        = 200
+
+# ── ElastiCache Redis ─────────────────────────────────────────
+redis_node_type       = "cache.t3.micro"
+redis_num_cache_nodes = 1
+redis_engine_version  = "7.1"
+
+# ── S3 ────────────────────────────────────────────────────────
+s3_invoice_bucket_name = "u2a-invoice-documents"
+s3_force_destroy       = false
+
+# ── SES ───────────────────────────────────────────────────────
+ses_from_email  = "noreply@u2acts.com"
+ses_alert_email = "admin@u2acts.com"
+
+# ── JWT ───────────────────────────────────────────────────────
+jwt_secret        = "CHANGE_ME_MIN_256_BIT_SECRET_KEY_HERE_AT_LEAST_32_CHARS"
+jwt_expiration_ms = 86400000
+
+# ── Lambda ────────────────────────────────────────────────────
+lambda_function_name = "InvoiceProcessorFunction"
+lambda_runtime       = "java21"
+lambda_memory_size   = 1024
+lambda_timeout       = 300
+
+# ── Monitoring ────────────────────────────────────────────────
+log_retention_days = 30
+alarm_email        = "alerts@u2acts.com"
+
+# ── Additional Tags ───────────────────────────────────────────
+additional_tags = {
+  CostCenter = "engineering"
+  Team       = "invoice-platform"
+}
+

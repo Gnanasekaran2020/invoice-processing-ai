@@ -1,0 +1,15 @@
+# Angular .dockerignore
+node_modules/
+dist/
+.angular/
+.git/
+.gitignore
+*.md
+coverage/
+.nyc_output/
+karma.conf.js
+*.spec.ts
+.env*
+.vscode/
+.idea/
+
